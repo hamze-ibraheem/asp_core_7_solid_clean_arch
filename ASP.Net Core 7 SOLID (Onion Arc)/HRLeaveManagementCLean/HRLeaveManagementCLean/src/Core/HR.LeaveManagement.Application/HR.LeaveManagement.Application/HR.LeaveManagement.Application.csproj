@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Includ="src\Core\HR.LeaveManagement.Domain\HR.LeaveManagement.Domain\HR.LeaveManagement.Domain.csproj" />
+</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Includ="src\Core\HR.LeaveManagement.Persistence\HR.LeaveManagement.Persistence\HR.LeaveManagement.Persistence.csproj" />
+</ItemGroup>
+</Project>
