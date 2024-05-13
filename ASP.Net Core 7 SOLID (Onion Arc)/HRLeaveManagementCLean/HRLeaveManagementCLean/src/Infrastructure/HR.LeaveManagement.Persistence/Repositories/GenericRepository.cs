@@ -1,10 +1,17 @@
 ﻿
 using HR.LeaveManagementApplication.Contracts.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using HR.LeaveManagement.Domain;
+
 namespace HR.LeaveManagement.Persistence.Repositories
 {
 
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         protected readonly HrDatabaseContext _context;
         public GenericRepository(HrDatabaseContext context)
@@ -26,12 +33,12 @@ namespace HR.LeaveManagement.Persistence.Repositories
 
         public async Task<IReadOnlyList<T>> GetAsync()
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int Id)
         {
-            return await _context.Set<T>().FindAsync(Id);
+            return await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync((q => q.Id == Id ));
         }
 
         public async Task UpdateAsync(T entity)
