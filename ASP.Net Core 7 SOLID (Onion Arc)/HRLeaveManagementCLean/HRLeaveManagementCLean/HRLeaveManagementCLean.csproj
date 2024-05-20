@@ -1,11 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
@@ -13,10 +11,22 @@
     <Folder Include="src/UI/" />
     <Folder Include="src\Core\" />
     <Folder Include="src\Core\HR.LeaveManagement.Domain\HR.LeaveManagement.Domain\Common\" />
+    <Folder Include="src\Core\HR.LeaveManagement.Application\HR.LeaveManagement.Application\Contracts\Email\" />
+    <Folder Include="src\Core\HR.LeaveManagement.Application\HR.LeaveManagement.Application\Models\" />
+    <Folder Include="src\Core\HR.LeaveManagement.Application\HR.LeaveManagement.Application\Models\Email\" />
+    <Folder Include="src\Infrastructure\HR.LeaveManagment.Infrastructure\EmailService\" />
+    <Folder Include="src\Core\HR.LeaveManagement.Application\HR.LeaveManagement.Application\Contracts\Logging\" />
+    <Folder Include="src\Infrastructure\HR.LeaveManagment.Infrastructure\Logging\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="src\Core\" />
     <None Remove="src\Core\HR.LeaveManagement.Domain\HR.LeaveManagement.Domain\Common\" />
+    <None Remove="src\Core\HR.LeaveManagement.Application\HR.LeaveManagement.Application\Contracts\Email\" />
+    <None Remove="src\Core\HR.LeaveManagement.Application\HR.LeaveManagement.Application\Models\" />
+    <None Remove="src\Core\HR.LeaveManagement.Application\HR.LeaveManagement.Application\Models\Email\" />
+    <None Remove="src\Infrastructure\HR.LeaveManagment.Infrastructure\EmailService\" />
+    <None Remove="src\Core\HR.LeaveManagement.Application\HR.LeaveManagement.Application\Contracts\Logging\" />
+    <None Remove="src\Infrastructure\HR.LeaveManagment.Infrastructure\Logging\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
@@ -26,7 +36,10 @@
     <PackageReference Include="FluentValidation" Version="11.9.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+    <PackageReference Include="SendGrid" Version="9.28.1" />
+    <Folder Include="src\API\" />
   </ItemGroup>
-
-
 </Project>
